@@ -1,0 +1,586 @@
+﻿
+@{
+    ViewBag.Title = "UserData";
+}
+<style>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css' > .form-style-10 {
+        width: 450px;
+        padding: 30px;
+        margin: 40px auto;
+        background: #FFF;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+        -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+        -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+    }
+
+    .form-style-10 .inner-wrap {
+        padding: 30px;
+        background: linear-gradient(to top right, #ffff99 0%, #ffffff 100%);
+        border-radius: 6px;
+        margin-bottom: 15px;
+        border-color: #004080;
+        border-style: inset;
+    }
+
+    .form-style-10 h1 {
+        background: #004080;
+        padding: 20px 30px 15px 30px;
+        margin: -30px -10px 20px -10px;
+        border-radius: 10px 10px 0 0;
+        -webkit-border-radius: 10px 10px 0 0;
+        -moz-border-radius: 10px 10px 0 0;
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+        font: normal 30px 'Bitter', serif;
+        -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+        -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+        box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+        border: 1px solid #257C9E;
+    }
+
+        .form-style-10 h1 > span {
+            display: block;
+            margin-top: 2px;
+            font: 13px Arial, Helvetica, sans-serif;
+        }
+
+    .form-style-10 label {
+        display: block;
+        font: 13px Arial, Helvetica, sans-serif;
+        color: #004080;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .form-style-10 input[type="text"],
+    .form-style-10 input[type="date"],
+    .form-style-10 input[type="datetime"],
+    .form-style-10 input[type="email"],
+    .form-style-10 input[type="number"],
+    .form-style-10 input[type="search"],
+    .form-style-10 input[type="time"],
+    .form-style-10 input[type="url"],
+    .form-style-10 input[type="password"],
+    .form-style-10 textarea,
+    .form-style-10 select {
+        display: block;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        width: 100%;
+        padding: 8px;
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border: 2px solid;
+        box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+        -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+        -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+    }
+
+    .form-style-10 .section {
+        font: normal 20px 'Bitter', serif;
+        color: black;
+        margin-bottom: 5px;
+        margin-left: 30px;
+    }
+
+        .form-style-10 .section span {
+            background: #004080;
+            padding: 5px 10px 5px 10px;
+            position: absolute;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border: 4px solid #fff;
+            font-size: 14px;
+            margin-left: -45px;
+            color: #fff;
+            margin-top: -3px;
+        }
+
+    .form-style-10 input[type="button"],
+    .form-style-10 button {
+        background: #004080;
+        padding: 8px 20px 8px 20px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+        font: normal 30px 'Bitter', serif;
+        -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+        -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+        box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+        border: 1px solid #257C9E;
+        font-size: 15px;
+    }
+
+        .form-style-10 input[type="button"]:hover,
+        .form-style-10 button:hover {
+            background: #0066cc;
+            color: white;
+            -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+            -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+            box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+        }
+
+
+    .form-style-10 .privacy-policy {
+        float: right;
+        width: 250px;
+        font: 12px Arial, Helvetica, sans-serif;
+        color: #4D4D4D;
+        margin-top: 10px;
+        text-align: right;
+    }
+
+    .form-inline {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+        /* Add some margins for each label */
+        .form-inline label {
+            margin: 5px 10px 5px 0;
+        }
+
+        /* Style the input fields */
+        .form-inline input {
+            vertical-align: middle;
+            margin: 5px 10px 5px 0;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+
+        /* Style the submit button */
+        .form-inline button {
+            padding: 10px 20px;
+            background-color: dodgerblue;
+            border: 1px solid #ddd;
+            color: white;
+        }
+
+            .form-inline button:hover {
+                background-color: royalblue;
+                color: white;
+            }
+
+
+    body {
+        margin-top:-70px;
+        background:url(/Image/view.jpeg) fixed;
+        /* Full height */
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    input[type=text], input[type=password], input[type=file], input[type=email], select, #type {
+        width: 100%;
+        border: 2px solid #aaa;
+        border-radius: 4px;
+        margin: 8px 0;
+        outline: none;
+        padding: 8px;
+        box-sizing: border-box;
+        transition: .3s;
+    }
+
+        input[type=text]:focus, input[type=password]:focus, input[type=file]:focus, input[type=email]:focus, select:focus, #type:focus {
+            border-color: #004080;
+            box-shadow: 0 0 8px 0 #004080;
+        }
+
+    #image-preview {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        #image-preview:hover {
+            opacity: 0.7;
+        }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    }
+
+    /* Modal Content (Image) */
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+
+    /* Caption of Modal Image (Image Text) - Same Width as the Image */
+    #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+    }
+
+    /* Add Animation - Zoom in the Modal */
+    .modal-content, #caption {
+        animation-name: zoom;
+        animation-duration: 0.6s;
+    }
+</style>
+<link href="~/Content/StyleSheet3.css" rel="stylesheet">
+<div class="form-style-10">
+    <h1 id="judul">Registration Input Form</h1>
+
+    <div class="section"><span>1</span>User & Password</div>
+    <br />
+    <div class="inner-wrap">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <label><b>UserID</b><input type="text" placeholder="Enter UserID" name="UserID" id="txtID" onchange="oo()" required></label>
+                <div id="sectiontohide20" style="display:none;margin-top:-10px; color:indianred">Please input your UserID.</div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <label><b>UserName</b> <input type="text" placeholder="Enter Username" autocomplete="off" name="UserName" id="txtname" onchange="oo()" required></label>
+                <div id="sectiontohide2" style="display:none; margin-top:-10px;color:indianred">Please input your Username.</div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <label><b>Password</b><input type="password" placeholder="Enter Password" name="psw" id="psw" onchange="oo()" required></label>
+                <div id="sectiontohide3" style="display:none; margin-top:-10px; color:indianred">Please input your Password.</div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <label><b>Confirm Password</b> <input type="password" placeholder="Confirm Password" name="psw" id="psw1" onchange="oo()" required></label>
+                <div id="sectiontohide10" style="display:none; margin-top:-10px; color:indianred">Please input your Confirm Password.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section"><span>2</span>Email & Address</div>
+    <br />
+    <div class="inner-wrap">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <label>Email <input type="email" placeholder="Enter Email" autocomplete="off" name="Email" id="email" onchange="oo()" required></label>
+                <div id="sectiontohide5" style="display:none; margin-top:-10px; color:indianred">Please input your Email.</div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <label>Address <input type="text" autocomplete="off" placeholder="Enter your Address" name="" id="txtadd" onchange="oo()" required></label>
+                <div id="sectiontohide4" style="display:none; margin-top:-10px; color:indianred">Please input your Address.</div>
+            </div>
+            @*<form class="form-inline" action="/action_page.php">
+                    <div id="sectiontohide5" style="display:none;position:absolute; margin-top:0px; color:indianred">Please input your Email.</div>
+                    <div id="sectiontohide4" style="display:none;position:absolute; margin-left: 30.5em; margin-top:0px; color:indianred">Please input your Address.</div>
+                </form>*@
+        </div>
+    </div>
+
+
+    <div class="section"><span>3</span>Profile Image & Position</div>
+    <br />
+    <div class="inner-wrap">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <label>
+                    Position 
+                    <input type="text" autocomplete="off" placeholder="Enter your Position" name="" id="type" onchange="oo()" required>
+                </label>
+                <div id="sectiontohide8" style="display:none;margin-top:-10px; color:indianred">Please input your Position.</div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <label>Profile Image <input type="file" id="image-source" onchange="previewImage();" /></label>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+
+                <img id="image-preview" src="~/Image/img.jpg" width="130" style="margin-bottom:10px;border-radius:3px" alt="" />
+                <button type="button" id="remove" class="registerbtn" onclick="Remove()" style="margin-top:10px;font-size:12px;width:130px">Remove Image</button>
+                <div id="myModal" class="modal">
+
+                    <!-- The Close Button -->
+                    <span class="close" style="top:60px;color:white;right:15px">&times;</span>
+
+                    <!-- Modal Content (The Image) -->
+                    <img class="modal-content" id="img01">
+
+                    <!-- Modal Caption (Image Text) -->
+                    <div id="caption"></div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2">
+                @*<button type="button" class="btn btn-secondary" style="margin-top:20px">Remove Image</button>*@
+            </div>
+        </div>
+
+    </div>
+    <div class="button-section">
+        <button type="button" class="registerbtn" id="btnsubmit" onclick="save();">Submit</button>
+        <button type="button" class="registerbtn" onclick="back()">Back</button>
+    </div>
+    <div class="col-sm-12">
+        <input type="text" style="display:none" name="" id="txtadd1" required>
+    </div>
+</div>
+<div class="alert alert-success" id="alert1" style="display:none;top:50px;right:-5px;width:250px; position:fixed" role="alert">
+    <span class="fas fa-exclamation-circle">
+        <b id="data">Insert Succesfully!</b>
+    </span>
+</div>
+<div class="alert alert-danger alert-dismissible fade in" id="alert" style="display:none;top:50px;right:0px;width:250px; position:fixed" role="alert">
+    <span class="fas fa-exclamation-circle">
+        <a href="#" class="close" style="position:fixed;right:12px; top:65px">&times;</a>
+        <b id="warning"><strong>Success!</strong> Indicates a successful or positive action.</b>
+    </span>
+</div>
+<div class="alert alert-info" id="alert2" style="display:none;top:50px;right:-5px;width:360px; position:fixed" role="alert">
+    <span class="fas fa-exclamation-circle">
+        <strong id="alert22">Info!</strong>
+    </span>
+</div>
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#txtadd1').val();
+                });
+                var modal = document.getElementById("myModal");
+
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById("image-preview");
+                var modalImg = document.getElementById("img01");
+                var captionText = document.getElementById("caption");
+                img.onclick = function () {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("modal")[0];
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+                var edit = false;
+
+                function back() {
+                        window.location.href = "/Home/Index"
+                    
+
+                }
+                $(".close").click(function () {
+                    $("#alert").css('display', 'none');
+                });
+
+                $(document).ready(function () {
+                    var url = new URLSearchParams(window.location.search);
+                    var search1 = url.has('UserID');
+                    if (search1 == true) {
+                        $("#judul").text("Edit User Profile");
+
+                    }
+                });
+
+                function Remove() {
+                    $('#image-preview').attr('src', '/Images/img.jpg');
+                    $('#txtadd1').val("");
+                }
+
+                function pswedit() {
+                    var checkvalidation = false;
+                    if (edit == true) {
+                        var Username = document.getElementById("txtname").value;
+
+                        if (Username != "") {
+                            document.getElementById("sectiontohide2").style.display = "none";
+                        }
+                        else if (Username == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide2").style.display = "block";
+                        }
+                        var UserID = document.getElementById("txtID").value;
+
+                        if (UserID != "") {
+                            document.getElementById("sectiontohide20").style.display = "none";
+                        }
+                        else if (UserID == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide20").style.display = "block";
+                        }
+
+                        var Address = document.getElementById("txtadd").value;
+                        if (Address != "") {
+                            document.getElementById("sectiontohide4").style.display = "none";
+                        }
+                        else if (Address == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide4").style.display = "block";
+                        }
+                        var Email = document.getElementById("email").value;
+                        if (Email != "") {
+                            document.getElementById("sectiontohide5").style.display = "none";
+                        }
+                        else if (Email == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide5").style.display = "block";
+                        }
+                        var Position = document.getElementById("type").value;
+
+                        if (Position != "") {
+                            document.getElementById("sectiontohide8").style.display = "none";
+                        }
+                        else if (Position == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide8").style.display = "block";
+                        }
+                    }
+                    else {
+                        var UserID = document.getElementById("txtID").value;
+
+                        if (UserID != "") {
+                            document.getElementById("sectiontohide20").style.display = "none";
+                        }
+                        else if (UserID == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide20").style.display = "block";
+                        }
+                        var Username = document.getElementById("txtname").value;
+
+                        if (Username != "") {
+                            document.getElementById("sectiontohide2").style.display = "none";
+                        }
+                        else if (Username == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide2").style.display = "block";
+                        }
+
+                        var Address = document.getElementById("txtadd").value;
+                        if (Address != "") {
+                            document.getElementById("sectiontohide4").style.display = "none";
+                        }
+                        else if (Address == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide4").style.display = "block";
+                        }
+                        var Email = document.getElementById("email").value;
+                        if (Email != "") {
+                            document.getElementById("sectiontohide5").style.display = "none";
+                        }
+                        else if (Email == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide5").style.display = "block";
+                        }
+                        var Password = document.getElementById("psw").value;
+                        if (Password != "") {
+                            document.getElementById("sectiontohide3").style.display = "none";
+                        }
+                        else if (Password == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide3").style.display = "block";
+                        }
+                        var ConfrimPassword = document.getElementById("psw1").value;
+                        if (ConfrimPassword != "") {
+                            document.getElementById("sectiontohide10").style.display = "none";
+                        }
+                        else if (ConfrimPassword == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide10").style.display = "block";
+                        }
+                        var Position = document.getElementById("type").value;
+
+                        if (Position != "") {
+                            document.getElementById("sectiontohide8").style.display = "none";
+                        }
+                        else if (Position == "") {
+                            checkvalidation = true;
+                            document.getElementById("sectiontohide8").style.display = "block";
+                        }
+                    }
+                    return checkvalidation;
+                }
+
+              
+
+
+                function previewImage() {
+                    var picture = $("#image-source").val();
+                    var picture2 = $("#txtadd1").val();
+                    if (picture != "") {
+                        document.getElementById("image-preview").style.display = "block";
+                        var oFReader = new FileReader();
+                        oFReader.readAsDataURL(document.getElementById("image-source").files[0]);
+
+                        oFReader.onload = function (oFREvent) {
+                            document.getElementById("image-preview").src = oFREvent.target.result;
+                        };
+                    }
+                    else if (picture2 == "") {
+                        $('#image-preview').attr('src', '/Images/img.jpg');
+                    }
+                    else {
+                            $('#image-preview').attr('src', picture2.substring(1));
+                    }
+
+                };
+
+                function oo() {
+                    var Username = document.getElementById("txtname").value;
+                    if (Username != "") {
+                        document.getElementById("sectiontohide2").style.display = "none";
+                    }
+                    var UserID = document.getElementById("txtID").value;
+                    if (UserID != "") {
+                        document.getElementById("sectiontohide20").style.display = "none";
+                    }
+                    var Password = document.getElementById("psw").value;
+                    if (Password != "") {
+                        document.getElementById("sectiontohide3").style.display = "none";
+                    }
+                    var Address = document.getElementById("txtadd").value;
+                    if (Address != "") {
+                        document.getElementById("sectiontohide4").style.display = "none";
+                    }
+                    var Email = document.getElementById("email").value;
+                    if (Email != "") {
+                        document.getElementById("sectiontohide5").style.display = "none";
+                    }
+                    var ConfrimPassword = document.getElementById("psw1").value;
+                    if (ConfrimPassword != "") {
+                        document.getElementById("sectiontohide10").style.display = "none";
+                    }
+                    var Position = document.getElementById("type").value;
+                    if (Position != "") {
+                        document.getElementById("sectiontohide8").style.display = "none";
+                    }
+                }
+    </script>
+}

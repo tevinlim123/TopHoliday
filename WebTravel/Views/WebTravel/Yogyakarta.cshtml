@@ -1,0 +1,886 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Yogyakarta</title>
+    <link rel="stylesheet" href="~/content/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <style>
+        .coupon {
+            border: 5px dotted #bbb; /* Dotted border */
+            width: 90%;
+            border-radius: 15px; /* Rounded border */
+            margin: 0 auto; /* Center the coupon */
+            max-width: 600px;
+        }
+
+        .container {
+            padding: 2px 16px;
+            background-color: #f1f1f1;
+        }
+
+        .promo {
+            background: #ccc;
+            padding: 3px;
+        }
+
+        .expire {
+            color: red;
+        }
+
+        .modal-dialog {
+            width: 100%;
+            margin: 50px auto;
+        }
+
+        body {
+            margin-top: 20px;
+        }
+
+        .panel-title {
+            display: inline;
+            font-weight: bold;
+        }
+
+        .checkbox.pull-right {
+            margin: 0;
+        }
+
+        .pl-ziro {
+            padding-left: 0px;
+        }
+        .ribbon-wrapper{height:70px;overflow:hidden;position:absolute;right:-2px;top:-2px;width:70px;z-index:10}
+.ribbon-wrapper.ribbon-lg{height:120px;width:120px}
+.ribbon-wrapper.ribbon-lg .ribbon{right:0;top:26px;width:160px}
+.ribbon-wrapper .ribbon{box-shadow:0 0 3px rgba(0,0,0,.3);font-size:.8rem;line-height:100%;padding:.375rem 0;position:relative;right:-2px;text-align:center;text-shadow:0 -1px 0 rgba(0,0,0,.4);text-transform:uppercase;top:10px;-webkit-transform:rotate(45deg);transform:rotate(45deg);width:90px}
+.ribbon-wrapper .ribbon::after,.ribbon-wrapper .ribbon::before{border-left:3px solid transparent;border-right:3px solid transparent;border-top:3px solid #9e9e9e;bottom:-3px;content:'';position:absolute}
+.ribbon-wrapper .ribbon::before{left:0}
+.ribbon-wrapper .ribbon::after{right:0}
+    </style>
+    <link href="~/Content/StyleSheet2.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background:linear-gradient(to right, #0066ff 0%, #33cccc 100%);">
+
+        <img src="/Image/logo.png" class="ml-2" alt="Avatar" width="40px">
+        <a class="navbar-brand" href="/Home/Index" style="font-family: Verdana,sans-serif;color:white"><b>TopHoliday</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mr-4">
+                <li class="nav-item active ml-2">
+                    <a class="nav-link" href="/Home/Index" style="font-family: Verdana,sans-serif;color:white"><b>Home</b> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ml-2">
+                    <a class="nav-link"  style="font-family: Verdana,sans-serif;color:white;font-weight:bold" href="/Home/Index?blog">Blog</a>
+                </li>
+                <li class="nav-item dropdown ml-2">
+                    <a class="nav-link dropdown-toggle"  style="font-family: Verdana,sans-serif;color:white;font-weight:bold" href="/Home/Index" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        List
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/Webtravel/data2">Bali</a>
+                        <a class="dropdown-item" href="/Webtravel/Medan">Medan</a>
+                        <a class="dropdown-item" href="/Webtravel/Yogyakarta">Yogyakarta</a>
+                        <a class="dropdown-item" href="/Webtravel/Mandalika">Mandalika</a>
+                        <a class="dropdown-item" href="/Webtravel/LabuanBajo">Labuan Bajo</a>
+                        <a class="dropdown-item" href="/Webtravel/Belitung">Belitung</a>
+                        <a class="dropdown-item" href="/Webtravel/Sumba">Sumba</a>
+                        <a class="dropdown-item" href="/Webtravel/RajaAmpat">Raja Ampat</a>
+                        <div class="dropdown-divider"></div>
+                        @*<a class="dropdown-item" href="#">Something else here</a>*@
+                    </div>
+                </li>
+                <li class="nav-item ml-1" >
+                    <a class="nav-link"  style="font-family: Verdana,sans-serif;color:white;font-weight:bold" href="/WebTravel/About">About</a>
+                </li>
+                <li class="nav-item ml-2">
+                    <a class="nav-link" style="font-family: Verdana,sans-serif;color:white;font-weight:bold" href="/WebTravel/login">Login</a>
+                </li>
+                <li class="nav-item ml-2">
+                    <a class="nav-link" style="font-family: Verdana,sans-serif;color:white;font-weight:bold" href="/WebTravel/register">Register</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+
+    </nav>
+    <div class="row mt-5 no-gutters">
+        <div class="col-md-2 bg-light">
+            <ul class="list-group p-2 pt-4" style="margin-left:10px;">
+                <li class="list-group-item bg-primary"><i class="fas fa-list"></i> Kategori Produk</li>
+                <li class="list-group-item" onclick="location.href='/Webtravel/data2'" style="cursor:pointer"><i class="fas fa-angle-right"></i> Bali</li>
+                <li class="list-group-item" onclick="location.href='/Webtravel/Medan'" style="cursor:pointer"><i class="fas fa-angle-right"></i> Medan</li>
+                <li class="list-group-item bg-warning" onclick="location.href='/Webtravel/Yogyakarta'" style="cursor:pointer"><i class="fas fa-angle-right"></i> Yogyakarta</li>
+                <li class="list-group-item" onclick="location.href='/Webtravel/Mandalika'" style="cursor:pointer"><i class="fas fa-angle-right"></i> Mandalika</li>
+                <li class="list-group-item" onclick="location.href='/Webtravel/LabuanBajo'" style="cursor:pointer"><i class="fas fa-angle-right"></i> Labuan Bajo</li>
+                <li class="list-group-item" onclick="location.href='/Webtravel/Belitung'" style="cursor:pointer"><i class="fas fa-angle-right"></i> Belitung</li>
+                <li class="list-group-item" onclick="location.href='/Webtravel/Sumba'" style="cursor:pointer"><i class="fas fa-angle-right"></i> Sumba</li>
+                <li class="list-group-item" onclick="location.href='/Webtravel/RajaAmpat'" style="cursor:pointer"><i class="fas fa-angle-right"></i> Raja Ampat</li>
+            </ul>
+            <br />
+            <div class="coupon" style="margin-left:15px">
+                <div class="container">
+                    <h4 style="font-family:Cursive;text-align:center"><b>Special Discount</b></h4>
+                </div>
+                <img src="/Image/voucher3.jpg" alt="Avatar" style="width:100%;">
+                <div class="container" style="background-color:white">
+                    <h2><b>Voucher Trip Rp 500.000</b></h2>
+                    <ul style="margin-left:-10px">
+                        <li>Available only in Yogyakarta, Mandalika, Labuan Bajo & Raja Ampat.</li>
+                        <li>Minimum Total Price Up to Rp 3.000.000</li>
+                    </ul>
+                    @*<p>- Available only in Yogyakarta, Mandalika, Labuan Bajo & Raja Ampat.<br />- Minimum Total Price Up to Rp 3.000.000 </p>*@
+                </div>
+                <div class="container">
+                    <p>Use Promo Code: <span class="promo">PBH101</span></p>
+                    <p class="expire">Expires: May 13, 2021</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div id="carouselExampleControls" style="margin-top:12px" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" style="width:100%;max-height:454px" src="/Image/yogyacover.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" style="width:100%;max-height:454px" src="/Image/kalibiru.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" style="width:100%;max-height:454px" src="/Image/skyview2.jpg" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <h2 class="text-center font-weight-bold m-4">Yogyakarta</h2>
+            <div class="row mx-auto">
+                <div class="card" style="width: 20.5rem;margin-left:20px">
+                    <div class="ribbon-wrapper ribbon-lg">
+                        <div class="ribbon bg-warning">
+                            Recommended
+                        </div>
+                    </div>
+                    <img src="/Image/yogya1.jpg" style="height:218px" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">4D/3N Favourite Jogja - Solo Tour</h5>
+                        <p class="card-text">Starting(/Person) <br /><b style="color:red">IDR 2.500.000 </b><br /><span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Yogyakarta - Indonesia</span></p>
+                        <a href="#" class="btn btn-primary" id="up" data-toggle="modal">Detail</a>
+                        <a href="#" class="btn btn-danger" id="book" data-toggle="modal"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="btn btn-warning" id="pop" data-toggle="modal"><i class="fas fa-map-marker-alt"></i></a>
+
+                    </div>
+                </div>
+                <div class="card ml-2 mr-2" style="width: 20.5rem;margin-left:20px">
+                    <div class="ribbon-wrapper ribbon-lg">
+                        <div class="ribbon bg-warning">
+                            Recommended
+                        </div>
+                    </div>
+                    <img src="/Image/yogya2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">2D/1N Favourite Pesona Jogja  </h5><br/>
+                        <p class="card-text">Starting(/Person)<br /><b style="color:red">IDR 1.700.000 </b><br /><span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Yogyakarta - Indonesia</span></p>
+                        <a href="#" class="btn btn-primary" id="up2" data-toggle="modal">Detail</a>
+                        <a href="#" class="btn btn-danger" id="book2" data-toggle="modal"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="btn btn-warning" id="pop2" data-toggle="modal"><i class="fas fa-map-marker-alt"></i></a>
+                    </div>
+                </div>
+                <div class="card ml-2 mr-2" style="width: 20.5rem;margin-left:20px">
+                    <div class="ribbon-wrapper ribbon-lg">
+                        <div class="ribbon bg-warning">
+                            Recommended
+                        </div>
+                    </div>
+                    <img src="/Image/yogya3.jpg" height="218" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">2D/1N Favourite Wisata Alam Jogja  </h5>
+                        <p class="card-text">Starting(/Person)<br /><b style="color:red">IDR 2.100.000 </b><br /><span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Yogyakarta - Indonesia</span></p>
+                        <a href="#" class="btn btn-primary" id="up3" data-toggle="modal">Detail</a>
+                        <a href="#" class="btn btn-danger" id="book3" data-toggle="modal"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="btn btn-warning" id="pop3" data-toggle="modal"><i class="fas fa-map-marker-alt"></i></a>
+                    </div>
+                </div>
+                <div class="card ml-2 mr-2" style="width: 20.5rem;margin-left:20px">
+                    <img src="/Image/yogya4.jpg" height="218" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">3D/2N Favourite Explore Kulon Progo </h5>
+       
+                        <p class="card-text">Starting(/Person)<br /><b style="color:red">IDR 1.700.000 </b><br /><span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Yogyakarta - Indonesia</span></p>
+                        <a href="#" class="btn btn-primary" id="up4" data-toggle="modal">Detail</a>
+                        <a href="#" class="btn btn-danger" id="book4" data-toggle="modal"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="btn btn-warning" id="pop4" data-toggle="modal"><i class="fas fa-map-marker-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mx-auto mt-4 mb-4">
+                <div class="card" style="width: 20.5rem;margin-left:20px">
+                    <img src="/Image/yogya5.jpg" height="218" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">3D/2N Favourite Wisata Kuliner Jogja </h5>
+                        <p class="card-text">Starting(/Person) <br /><b style="color:red">IDR 2.100.000 </b><br /><span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Yogyakarta - Indonesia</span></p>
+                        <a href="#" class="btn btn-primary" id="up5" data-toggle="modal">Detail</a>
+                        <a href="#" class="btn btn-danger" id="book5" data-toggle="modal"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="btn btn-warning" id="pop5" data-toggle="modal"><i class="fas fa-map-marker-alt"></i></a>
+
+                    </div>
+                </div>
+                <div class="card ml-2 mr-2" style="width: 20.5rem;margin-left:20px">
+                    <img src="/Image/yogya6.jpg" height="218" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">3D/2N Favourite Jogja Happy Family  </h5>
+                        <p class="card-text">Starting(/Person)<br /><b style="color:red">IDR 2.100.000 </b><br /><span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Yogyakarta - Indonesia</span></p>
+                        <a href="#" class="btn btn-primary" id="up6" data-toggle="modal">Detail</a>
+                        <a href="#" class="btn btn-danger" id="book6" data-toggle="modal"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="btn btn-warning" id="pop6" data-toggle="modal"><i class="fas fa-map-marker-alt"></i></a>
+                    </div>
+                </div>
+                @*<div class="card ml-2 mr-2" style="width: 20.5rem;margin-left:20px">
+                        <img src="/Image/ubud.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Kamandalu Ubud 3D/2N Honeymoon Package Ubud Chalet</h5>
+                            <br />
+                            <p class="card-text">Starting(/Person)<br /><b style="color:red">IDR 7.800.000 </b><span style="margin-left:20px"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Medan - Indonesia</span></p>
+                            <a href="#" class="btn btn-primary" id="up8" data-toggle="modal">Detail</a>
+                            <a href="#" class="btn btn-danger" id="book8" data-toggle="modal"><i class="fas fa-shopping-cart"></i></a>
+                            <a href="#" class="btn btn-warning" id="pop8" data-toggle="modal"><i class="fas fa-map-marker-alt"></i></a>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="modal fade" id="buy1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-primary">
+                                <h5 class="modal-title" id="judul" style="color:white">Favorite Bali Full Day Bedugul with Tanah Lot & Nusa Dua Tour</h5>
+                                <button type="button" class="close" onclick="validateShipping3()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-5 col-md-6">
+                                            <h4>Add payment:</h4>
+                                            <div class="panel panel-default">
+                                                <div class="panel-body form-horizontal payment-form">
+                                                    <div class="form-group">
+                                                        <label for="concept" class="col-sm-3 control-label">Name:</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" autocomplete="off" class="form-control" id="concept" name="concept">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="description" class="col-sm-3 control-label">Email:</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" autocomplete="off" class="form-control" id="description" name="description">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="amount" class="col-sm-3 control-label">Amount</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="number" autocomplete="off" class="form-control" id="amount" name="amount">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="status" class="col-sm-3 control-label">Status</label>
+                                                        <div class="col-sm-9">
+                                                            <select class="form-control" id="status" name="status">
+                                                                <option>Paid</option>
+                                                                <option>Unpaid</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="date" class="col-sm-3 control-label">Date</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="date" class="form-control" id="date" name="date">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <button style="width:280px" type="button" class="btn btn-primary preview-add-button">
+                                                                <i class="fa fa-plus">Add</i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 col-md-6">
+                                            <h3>Payment Details</h3>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table preview-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Concept</th>
+                                                                    <th>Description</th>
+                                                                    <th>Amount</th>
+                                                                    <th>Status</th>
+                                                                    <th>Date</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody></tbody> <!-- preview content goes here-->
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @*<div class="text-left">
+                                                    <div class="col-xs-12">
+                                                        <h4>Total: <strong><span class="preview-total"></span></strong></h4>
+                                                    </div>
+                                                </div>*@
+
+                                            @*<div class="col-xs-12">
+                                                    <hr style="border:1px dashed #dddddd;">
+                                                    <button type="button" class="btn btn-primary btn-block">Submit all and finish</button>
+                                                </div>*@
+                                            <br />
+                                            <div class="panel panel-default">
+                                                @*<div class="panel-heading">
+                                                        <h3 class="panel-title">
+                                                            Payment Details
+                                                        </h3>
+                                                        <div class="checkbox pull-right">
+                                                            <label>
+                                                                <input type="checkbox" />
+                                                                Remember
+                                                            </label>
+                                                        </div>
+                                                    </div>*@
+                                                <div class="panel-body">
+                                                    <form role="form">
+                                                        <div class="form-group">
+                                                            <label for="cardNumber">
+                                                                CARD NUMBER
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                                                       required autofocus />
+                                                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-12 col-md-12 pull-right">
+                                                                <div class="form-group">
+                                                                    <label for="cvCode">
+                                                                        PROMO CODE
+                                                                    </label>
+                                                                    <input type="password" class="form-control" id="cvCode" placeholder="Promo Code" required />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-md-12 pull-left">
+                                                                <div class="paymentWrap">
+                                                                    <div class="paymentBtnGroup btn-group-justified" data-toggle="buttons">
+                                                                        <label class="btn paymentMethod active">
+                                                                            <div class="method visa"></div>
+                                                                            <input type="radio" name="options" checked>
+                                                                        </label>
+                                                                        <label class="btn paymentMethod">
+                                                                            <div class="method master-card"></div>
+                                                                            <input type="radio" name="options">
+                                                                        </label>
+                                                                        <label class="btn paymentMethod">
+                                                                            <div class="method amex"></div>
+                                                                            <input type="radio" name="options">
+                                                                        </label>
+                                                                        <label class="btn paymentMethod">
+                                                                            <div class="method maybank"></div>
+                                                                            <input type="radio" name="options">
+                                                                        </label>
+                                                                        <label class="btn paymentMethod">
+                                                                            <div class="method ocb"></div>
+                                                                            <input type="radio" name="options">
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <ul class="nav nav-pills nav-stacked">
+                                                <li class="active">
+                                                    <a href="#"><span class="badge pull-right" id="price"><span class="glyphicon glyphicon-usd"></span>4200</span> Final Payment</a>
+                                                </li>
+                                            </ul>
+                                            <br />
+                                            <a href="http://www.jquery2dotnet.com" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
+                                        </div>
+
+                                        @*<div class="col-xs-12 col-md-5">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">
+                                                            Payment Details
+                                                        </h3>
+                                                        <div class="checkbox pull-right">
+                                                            <label>
+                                                                <input type="checkbox" />
+                                                                Remember
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <form role="form">
+                                                            <div class="form-group">
+                                                                <label for="cardNumber">
+                                                                    CARD NUMBER
+                                                                </label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                                                           required autofocus />
+                                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-md-12 pull-right">
+                                                                    <div class="form-group">
+                                                                        <label for="cvCode">
+                                                                            PROMO CODE
+                                                                        </label>
+                                                                        <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-12 col-md-12 pull-left">
+                                                                    <div class="paymentWrap">
+                                                                        <div class="paymentBtnGroup btn-group-justified" data-toggle="buttons">
+                                                                            <label class="btn paymentMethod active">
+                                                                                <div class="method visa"></div>
+                                                                                <input type="radio" name="options" checked>
+                                                                            </label>
+                                                                            <label class="btn paymentMethod">
+                                                                                <div class="method master-card"></div>
+                                                                                <input type="radio" name="options">
+                                                                            </label>
+                                                                            <label class="btn paymentMethod">
+                                                                                <div class="method amex"></div>
+                                                                                <input type="radio" name="options">
+                                                                            </label>
+                                                                            <label class="btn paymentMethod">
+                                                                                <div class="method maybank"></div>
+                                                                                <input type="radio" name="options">
+                                                                            </label>
+                                                                            <label class="btn paymentMethod">
+                                                                                <div class="method ocb"></div>
+                                                                                <input type="radio" name="options">
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <ul class="nav nav-pills nav-stacked">
+                                                    <li class="active">
+                                                        <a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>4200</span> Final Payment</a>
+                                                    </li>
+                                                </ul>
+                                                <br />
+                                                <a href="http://www.jquery2dotnet.com" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
+                                            </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer bg-primary">
+                                <button type="button" class="btn btn-secondary" onclick="validateShipping3()">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="modal fade" id="produk1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-primary">
+                                <h5 class="modal-title" id="text1" style="color:white">Favorite Bali Full Day Bedugul with Tanah Lot & Nusa Dua Tour</h5>
+                                <button type="button" class="close" onclick="validateShipping2()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-5 col-md-6">
+                                        <img src="/Image/bali.jpg" id="images" width="100%" alt="Alternate Text" />
+                                    </div>
+                                    <div class="col-lg-7 col-md-6">
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <th><i class="fas fa-plane-departure text-primary mr-2" width="100%"></i> Tour Duration:</th>
+                                                <td id="text2">3 Days / 2 Night</td>
+                                            </tr>
+                                            <tr>
+                                                <th><img src="/Image/trip.png" style="margin-right:4px" width="25px" /> Minimum Pax:</th>
+                                                <td id="text3">3 People</td>
+                                            </tr>
+                                            <tr>
+                                                <th><i class="far fa-calendar-check text-primary ml-1 mr-2" style="font-size:20px"></i> Departure:</th>
+                                                <td class="mr-4" id="text4">1 Aug 2020 - 31 Mar 2021</td>
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fas fa-suitcase-rolling text-primary ml-1 mr-2" style="font-size:22px"></i> Category:</th>
+                                                <td class="mr-4" id="text5">Leisure</td>
+                                            </tr>
+                                            <tr>
+                                                <th><i class="fas fa-map-marked text-primary ml-1 mr-1" style="font-size:18px"></i> Tour Type:</th>
+                                                <td class="mr-4" id="text6">Private Tour</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer bg-primary">
+                                <button type="button" class="btn btn-secondary" onclick="validateShipping2()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" style="border-radius:20px;" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-md modal-sm">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span style="font-size:20px;font-family:Times New Roman, Times, serif;"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Yogyakarta - Indonesia</span>
+
+                            </div>
+                            <div class="modal-body">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1503.2117328803135!2d115.08638905919885!3d-8.621558117522833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd237824f71deab%3A0xcaabe270f7e34d69!2sTanah%20Lot!5e1!3m2!1sen!2sid!4v1614052249438!5m2!1sen!2sid" id="map" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" onclick="validateShipping()">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loader" id="load" style="display:none"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function validateShipping(){
+        $('#myModal').modal('hide');
+    }
+    function validateShipping2() {
+        $('#produk1').modal('hide');
+    }
+    function validateShipping3() {
+        $('#buy1').modal('hide');
+    }
+    document.getElementById('pop2').onclick = function () {
+        $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.3559836610148!2d110.48927871432598!3d-7.752015279011824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5ae3dbd859d1%3A0x19e7a03b25955a2d!2sPrambanan%20Temple!5e0!3m2!1sen!2sid!4v1616347232290!5m2!1sen!2sid');
+        $("#myModal").modal("show");
+        $("#myModal").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#myModal").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('pop3').onclick = function () {
+        $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.519055909721!2d110.6428143143281!3d-7.945190381345895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a4b404cfb461f%3A0x7e74b92616a96a64!2sGua%20Pindul%20Kedung%20Gupit!5e0!3m2!1sen!2sid!4v1616347328254!5m2!1sen!2sid');
+        $("#myModal").modal("show");
+        $("#myModal").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#myModal").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('pop').onclick = function () {
+        $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.1491972013578!2d110.78212611432393!3d-7.5587064767368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1430b1530621%3A0x10544efe834e35a2!2sJl.%20Raya%20Solo%20-%20Yogyakarta%2C%20Pajang%2C%20Kec.%20Laweyan%2C%20Kota%20Surakarta%2C%20Jawa%20Tengah!5e0!3m2!1sen!2sid!4v1616345632223!5m2!1sen!2sid');
+        $("#myModal").modal("show");
+        $("#myModal").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#myModal").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('pop4').onclick = function () {
+        $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252978.5058160144!2d110.00405046625697!3d-7.812130719193434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7ae554b4872e5d%3A0x3027a76e352bbf0!2sKulon%20Progo%20Regency%2C%20Special%20Region%20of%20Yogyakarta!5e0!3m2!1sen!2sid!4v1616345878286!5m2!1sen!2sid');
+        $("#myModal").modal("show");
+        $("#myModal").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#myModal").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('pop5').onclick = function () {
+        $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.6974180176294!2d110.20156261432433!3d-7.607868477309597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a8cf009a7d697%3A0xdd34334744dc3cb!2sBorobudur%20Temple!5e0!3m2!1sen!2sid!4v1616345938823!5m2!1sen!2sid');
+        $("#myModal").modal("show");
+        $("#myModal").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#myModal").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('pop6').onclick = function () {
+        $('#map').attr('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.844992745483!2d110.39460901432652!3d-7.806229079660695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a576ee82ea301%3A0x6a2223f1f382914b!2sGembira%20Loka%20Zoo!5e0!3m2!1sen!2sid!4v1616346014689!5m2!1sen!2sid');
+        $("#myModal").modal("show");
+        $("#myModal").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#myModal").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+   
+    document.getElementById('up').onclick = function () {
+        $('#images').attr('src', '/Image/yogya1.jpg');
+        $("#text1").text("Favourite Jogja - Solo Tour");
+        $("#text4").text("1 Jan 2020 - 31 Mar 2021");
+        $("#text2").text("4 Days / 3 Night");
+        $("#text3").text("3 Person");
+        $("#text6").text("Private Tour");
+        $("#produk1").modal("show");
+        $("#produk1").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#produk1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('up2').onclick = function () {
+        $('#images').attr('src', '/Image/yogya2.jpg');
+        $("#text1").text("Favourite Pesona Jogja");
+        $("#text3").text("2 Person");
+        $("#text2").text("2 Days / 1 Night");
+        $("#text6").text("Private Tour");
+        $("#text4").text("1 Feb 2020 - 28 June 2021");
+        $("#produk1").modal("show");
+        $("#produk1").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#produk1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('up3').onclick = function () {
+        $('#images').attr('src', '/Image/yogya3.jpg');
+        $("#text1").text("Favourite Wisata Alam Jogja");
+        $("#text3").text("3 Person");
+        $("#text4").text("1 April 2020 - 20 Dec 2021");
+        $("#text2").text("2 Days / 1 Night");
+        $("#text6").text("Group Tour");
+        $("#produk1").modal("show");
+        $("#produk1").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#produk1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('up4').onclick = function () {
+        $('#images').attr('src', '/Image/yogya4.jpg');
+        $("#text1").text("Favourite Explore Kulon Progo");
+        $("#text3").text("3 Person");
+        $("#text4").text("1 Jan 2020 - 31 Mar 2021");
+        $("#text2").text("3 Days / 2 Night");
+        $("#text6").text("Private Tour");
+        $("#produk1").modal("show");
+        $("#produk1").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#produk1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('up5').onclick = function () {
+        $('#images').attr('src', '/Image/yogya5.jpg');
+        $("#text2").text("3 Days / 2 Night");
+        $("#text1").text("Favourite Wisata Kuliner Jogja");
+        $("#text3").text("3 Person");
+        $("#text4").text("5 May 2020 - 31 Nov 2021");
+        $("#text6").text("Group Tour");
+        $("#produk1").modal("show");
+        $("#produk1").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#produk1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('up6').onclick = function () {
+        $('#images').attr('src', '/Image/yogya6.jpg');
+        $("#text1").text("Favourite Jogja Happy Family");
+        $("#text3").text("2 Person");
+        $("#text2").text("3 Days / 2 Night");
+        $("#text4").text("8 Aug 2020 - 31 April 2021");
+        $("#text6").text("Private Tour");
+        $("#produk1").modal("show");
+        $("#produk1").css('visibility', 'hidden');
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#produk1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+
+    function calc_total() {
+        var sum = 0;
+        $('.input-amount').each(function () {
+            sum += parseFloat($(this).text());
+        });
+        $("#price").text(sum);
+    }
+    $(document).on('click', '.input-remove-row', function () {
+        var tr = $(this).closest('tr');
+        tr.fadeOut(200, function () {
+            tr.remove();
+            calc_total()
+        });
+    });
+
+    $(function () {
+        $('.preview-add-button').click(function () {
+            var form_data = {};
+            form_data["concept"] = $('.payment-form input[name="concept"]').val();
+            form_data["description"] = $('.payment-form input[name="description"]').val();
+            form_data["amount"] = parseFloat($('.payment-form input[name="amount"]').val()).toFixed(2);
+            form_data["status"] = $('.payment-form #status option:selected').text();
+            form_data["date"] = $('.payment-form input[name="date"]').val();
+            form_data["remove-row"] = '<span class="glyphicon glyphicon-remove"></span>';
+            var row = $('<tr></tr>');
+            $.each(form_data, function (type, value) {
+                $('<td class="input-' + type + '"></td>').html(value).appendTo(row);
+            });
+            $('.preview-table > tbody:last').append(row);
+            calc_total();
+        });
+    });
+
+    document.getElementById('book').onclick = function () {
+        $("#buy1").modal("show");
+        $("#buy1").css('visibility', 'hidden');
+        $("#judul").text("Favourite Jogja - Solo Tour");
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#buy1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('book2').onclick = function () {
+        $("#buy1").modal("show");
+        $("#buy1").css('visibility', 'hidden');
+        $("#judul").text("Favourite Pesona Jogja");
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#buy1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('book3').onclick = function () {
+        $("#buy1").modal("show");
+        $("#buy1").css('visibility', 'hidden');
+        $("#judul").text("Favourite Wisata Alam Jogja");
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#buy1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('book4').onclick = function () {
+        $("#buy1").modal("show");
+        $("#buy1").css('visibility', 'hidden');
+        $("#judul").text("Favourite Explore Kulon Progo");
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#buy1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('book5').onclick = function () {
+        $("#buy1").modal("show");
+        $("#buy1").css('visibility', 'hidden');
+        $("#judul").text("Favourite Wisata Kuliner Jogja");
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#buy1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+    document.getElementById('book6').onclick = function () {
+        $("#buy1").modal("show");
+        $("#buy1").css('visibility', 'hidden');
+        $("#judul").text("Favourite Jogja Happy Family");
+        $("#load").css('display', 'block');
+        var delay = 710;
+        setTimeout(function () {
+            $("#buy1").css('visibility', 'visible');
+            $("#load").css('display', 'none');
+        }, delay);
+    }
+
+</script>

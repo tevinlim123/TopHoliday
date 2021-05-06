@@ -1,0 +1,360 @@
+﻿#alert1 {
+
+    border-left:4px solid #00e600;
+  animation-name: example;
+  animation-duration: 4s;
+
+}
+ #alert2 {
+
+    border-left:4px solid #0000e6;
+  animation-name: example;
+  animation-duration: 4s;
+
+}
+
+@keyframes example {
+  0%   {right:-200px;}
+  25%  { right:-20px;}
+    50%  { right:-10px;}
+  75%  { right:-5px;}
+}
+
+#alert {
+
+      border-left:4px solid #e60000;
+  animation-name: example1;
+  animation-duration: 4s;
+
+}
+#closed {
+
+
+  animation-name: example1;
+  animation-duration: 4s;
+
+}
+@keyframes example1 {
+  0%   {right:-200px;}
+  25%  { right:-20px;}
+    50%  { right:-10px;}
+  75%  { right:0px;}
+}
+#gg{
+  background: #fff;
+  padding: 50px 10px 80px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.25);
+
+  height: 25%;
+  width:350px;
+
+display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+      margin: -20px -190px; 
+    position:relative;
+    top:50%; 
+    left:50%;
+      border-bottom-left-radius:10px;
+      border-bottom-right-radius:10px;
+       animation-name: example3;
+         animation-duration: 0.3s;
+      
+}
+#gg p{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+#gg .btns{
+  display: flex;
+  margin: 10px 10px 100px 0;
+    position:relative;
+    top:50%; 
+    left:8.5%;
+
+}
+#gg1 a{
+  position: relative;
+  margin: 0 20px;
+  height: 60px;
+  width: 100px;
+  display: block;
+  line-height: 60px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+#gg1 a:first-child{
+  background: linear-gradient(-90deg, #f5ce62, #e85a19);
+}
+#gg1 a:last-child{
+  background: linear-gradient(90deg, #0162c8, #55e7fc);
+}
+#gg1 a > span{
+  position: absolute;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ripples 0.6s linear infinite;
+}
+
+@keyframes example4 {
+  0%   {top:-10px;}
+  25%  {top:0px;}
+  50%  {top:20px;}
+  75%  {top:30px;}
+  100% {top:40px;}
+}
+
+
+@media screen and (min-width: 1070px) {
+  #btnn {
+  float:right
+  }
+
+}
+
+#btnn {
+    z-index:0;
+}
+
+@media screen and (max-width: 640px) {
+    #employeeTable9_length{
+        float:left;
+    }
+    #employeeTable9_filter{
+        float:right
+    }
+    #employeeTable9_info{
+        float:left
+    }
+    #employeeTable9_paginate{
+        float:right
+    }
+        #employeeTable4_length{
+        float:left;
+    }
+    #employeeTable4_filter{
+        float:right
+    }
+    #employeeTable4_info{
+        float:left
+    }
+    #employeeTable4_paginate{
+        float:right
+    }
+            #employeeTable2_length{
+        float:left;
+    }
+    #employeeTable2_filter{
+        float:right
+    }
+    #employeeTable2_info{
+        float:left
+    }
+    #employeeTable2_paginate{
+        float:right
+    }
+                #employeeTable3_length{
+        float:left;
+    }
+    #employeeTable3_filter{
+        float:right
+    }
+    #employeeTable3_info{
+        float:left
+    }
+    #employeeTable3_paginate{
+        float:right
+    }
+                    #employeeTable5_length{
+        float:left;
+    }
+    #employeeTable5_filter{
+        float:right
+    }
+    #employeeTable5_info{
+        float:left
+    }
+    #employeeTable5_paginate{
+        float:right
+    }
+                        #employeeTable6_length{
+        float:left;
+    }
+    #employeeTable6_filter{
+        float:right
+    }
+    #employeeTable6_info{
+        float:left
+    }
+    #employeeTable6_paginate{
+        float:right
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+
+   .table-wrapper .btn-group1 {
+                margin-top:5px
+            }
+}
+
+
+@media screen and (min-width: 1198px) {
+
+              #employeeTable5_wrapper{
+                width:90%;
+            }
+                        #employeeTable6_wrapper{
+                width:90%;
+                float:right
+            }
+                        #abc, #iya , #zzz, #def, #yes{
+                                   height: 30px;
+        width: 100px;
+        margin: 5px -80px;
+        position: relative;
+        top: 60%;
+        width: 200px;
+                        }
+}
+
+@media screen and (max-width: 640px) {
+      .modal-dialog {
+    width: 100%;
+    margin: 50px auto;
+}
+                              #employeeTable7_length{
+        float:left;
+    }
+    #employeeTable7_filter{
+        float:right
+    }
+    #employeeTable7_info{
+        float:left
+    }
+    #employeeTable7_paginate{
+        float:right
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1000px)  {
+      .modal-dialog {
+    width: 90%;
+    margin: 50px auto;
+}
+                              #employeeTable7_length{
+        float:left;
+    }
+    #employeeTable7_filter{
+        float:right
+    }
+    #employeeTable7_info{
+        float:left
+    }
+    #employeeTable7_paginate{
+        float:right
+    }
+}
+@media screen and (min-width: 1000px) and (max-width: 1500px)  {
+      .modal-dialog {
+    width: 80%;
+    margin: 50px auto;
+}
+  #employeeTable7_length{
+        float:left;
+    }
+    #employeeTable7_filter{
+        float:right
+    }
+    #employeeTable7_info{
+        float:left
+    }
+    #employeeTable7_paginate{
+        float:right
+    }
+}
+
+  @media screen and (min-width: 0px) and (max-width: 780px) {
+#gg{
+  background: #fff;
+  padding: 50px 10px 80px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.25);
+
+  height: 25%;
+  width:350px;
+
+display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+      margin: -20px -190px; 
+    position:relative;
+    top:50%; 
+    left:53.9%;
+      border-bottom-left-radius:10px;
+      border-bottom-right-radius:10px;
+       animation-name: example3;
+         animation-duration: 0.3s;
+      
+}
+}
+
+
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  opacity:0.5;
+}
+
+.close:hover,
+.close:focus {
+  color: white ;
+  text-decoration: none;
+  cursor: pointer;
+  opacity:1;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+
+
+@media screen and (max-width: 320px) {
+.col-xs-6 {
+     width: unset; 
+}
+}
+
+@media screen and (min-width: 0px) and (max-width: 320px) {
+#import{
+    margin-bottom:10px; margin-left:0px; padding: 10px 20px;
+}
+}
